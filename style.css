@@ -11,28 +11,58 @@ body {
     color: #333;
 }
 
+
+
+/* Basic style for the navigation bar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    background-color: #333;
-    padding: 10px 20px;
-    color: white;
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Vertically center the items */
+    justify-content: space-between; /* Space out the logo, title, and navigation */
+    padding: 20px; /* Add padding for spacing */
 }
 
-.navbar h1 {
-    font-size: 24px;
+/* Style for the logo */
+.logo {
+    height: 50px; /* Set a fixed height for the logo */
+    margin-right: 20px; /* Space between the logo and the title */
 }
 
-.navbar ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
+/* Optional: Style for the title */
+.navbar-title {
+    flex-grow: 1; /* Allow the title to take the remaining space */
+    text-align: center; /* Center the title */
 }
 
-.navbar ul li a {
-    color: white;
-    text-decoration: none;
+/* Style for the navigation links */
+.nav-links {
+    list-style: none; /* Remove the default list styling */
+    display: flex; /* Align the list items in a row */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
 }
+
+.nav-links li {
+    margin-left: 20px; /* Add space between the list items */
+}
+
+/* Style for the links */
+.nav-links a {
+    text-decoration: none; /* Remove the underline from links */
+    color: #333; /* Set link color */
+    font-size: 18px; /* Font size for the links */
+    display: flex; /* Make the link a flex container */
+    align-items: center; /* Vertically align the icon and text */
+}
+
+/* Style for the icons inside the links */
+.nav-links i {
+    margin-right: 8px; /* Space between the icon and text */
+    font-size: 20px; /* Adjust icon size */
+}
+
+
+
+
 
 .search-bar {
     padding: 20px;
@@ -89,4 +119,9 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 200px;
     text-align: center;
+}
+
+.vehicle-image {
+    width: 100%;
+    height: auto;
 }

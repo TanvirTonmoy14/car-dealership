@@ -5,21 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Dealership</title>
     <link rel="stylesheet" href="style.css">
+
+     <!-- Load Font Awesome for icons -->
+     <script src="https://kit.fontawesome.com/c8fa56d403.js" crossorigin="anonymous"></script>
+    
 </head>
 <body>
     <!-- Navigation Section -->
     <header>
         <nav class="navbar">
+
+            <img src="logo.png" alt="Car Dealership Logo" class="logo">
+
             <h1>Car Dealership</h1>
-            <ul>
-                <li><a href="#new-cars">New Cars</a></li>
-                <li><a href="#used-cars">Used Cars</a></li>
-                <li><a href="#electric-hybrid">Electric & Hybrid Cars</a></li>
-                <li><a href="#financing">Financing</a></li>
-                <li><a href="#financing">Financing2</a></li>
+
+            <ul class="nav-links">
+                <li><a href="#new-cars"><i class="fa fa-car"></i> New Cars</a></li>
+                <li><a href="#used-cars"><i class="fa fa-car-side"></i> Used Cars</a></li>
+                <li><a href="#electric-hybrid"><i class="fa fa-bolt"></i> Electric & Hybrid Cars</a></li>
+                <li><a href="#financing"><i class="fa fa-dollar-sign"></i> Financing</a></li>
+                <li><a href="#financing2"><i class="fa-solid fa-magnifying-glass"></i> Financing2</a></li>
             </ul>
         </nav>
     </header>
+
 
     <!-- Enhanced Search Bar with Filters -->
     <section class="search-bar">
@@ -82,10 +91,27 @@
     <section class="featured-vehicles">
         <h2>Featured Vehicles</h2>
         <div class="vehicle-grid">
-            <div class="vehicle-card"><a href="vehicle-detail.html">Vehicle 1</a></div>
-            <div class="vehicle-card"><a href="vehicle-detail.html">Vehicle 2</a></div>
-            <div class="vehicle-card"><a href="vehicle-detail.html">Vehicle 3</a></div>
-            <div class="vehicle-card"><a href="vehicle-detail.html">Vehicle 4</a></div>
+            <div class="vehicle-card"><a href="vehicle-detail.html">
+                <img src="vehicle1.jpg" alt="Vehicle 1" class="vehicle-image">
+
+            </a>
+        </div>
+            <div class="vehicle-card"><a href="vehicle-detail.html">
+                <img src="vehicle2.jpg" alt="Vehicle 2" class="vehicle-image">
+
+            </a>
+        </div>
+            <div class="vehicle-card"><a href="vehicle-detail.html">
+                <img src="vehicle3.jpg" alt="Vehicle 3" class="vehicle-image">
+
+            </a>
+        </div>
+            <div class="vehicle-card"><a href="vehicle-detail.html">
+                <img src="vehicle4.jpg" alt="Vehicle 4" class="vehicle-image">
+                <p>Vehicle 4</p>
+
+            </a>
+        </div>
         </div>
     </section>
 
