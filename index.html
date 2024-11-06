@@ -30,17 +30,75 @@
     </header>
 
 
-    <!-- Enhanced Search Bar with Filters -->
-    <section class="search-bar">
+     <!-- Enhanced Search Bar with Filters -->
+     <section class="search-bar">
         <h2>Find Your Car</h2>
         <form id="search-form">
-            <input type="text" placeholder="Make" id="make" required>
-            <input type="text" placeholder="Model" id="model" required>
-            <input type="text" placeholder="Year" id="year" required>
-            <input type="text" placeholder="Price Range" id="price-range" required>
-            <input type="text" placeholder="Mileage" id="mileage" required>
-            <input type="text" placeholder="Location" id="location" required>
-            
+            <!-- Make Filter -->
+            <label for="make">Make</label>
+            <select id="make">
+                <option value="">Any</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Ford">Ford</option>
+                <option value="Tesla">Tesla</option>
+                <option value="Honda">Honda</option>
+                <!-- Add more makes here -->
+            </select>
+
+            <!-- Model Filter -->
+            <label for="model">Model</label>
+            <select id="model">
+                <option value="">Any</option>
+                <option value="Corolla">Corolla</option>
+                <option value="Focus">Focus</option>
+                <option value="Model 3">Model 3</option>
+                <option value="Civic">Civic</option>
+                <!-- Add more models here -->
+            </select>
+
+            <!-- Year Filter -->
+            <label for="year">Year</label>
+            <select id="year">
+                <option value="">Any</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <!-- Add more years as needed -->
+            </select>
+
+            <!-- Price Filter -->
+            <label for="price-range">Price Range</label>
+            <select id="price-range">
+                <option value="">Any</option>
+                <option value="10000">Under $10,000</option>
+                <option value="20000">Under $20,000</option>
+                <option value="30000">Under $30,000</option>
+                <option value="40000">Under $40,000</option>
+                <option value="50000">Under $50,000</option>
+                <!-- Add more price ranges -->
+            </select>
+
+            <!-- Mileage Filter -->
+            <label for="mileage">Mileage</label>
+            <select id="mileage">
+                <option value="">Any</option>
+                <option value="5000">Under 5,000 miles</option>
+                <option value="10000">Under 10,000 miles</option>
+                <option value="20000">Under 20,000 miles</option>
+                <!-- Add more mileage options -->
+            </select>
+
+            <!-- Location Filter -->
+            <label for="location">Location</label>
+            <select id="location">
+                <option value="">Any</option>
+                <option value="New York">New York</option>
+                <option value="Los Angeles">Los Angeles</option>
+                <option value="San Francisco">San Francisco</option>
+                <option value="Miami">Miami</option>
+                <!-- Add more locations -->
+            </select>
             <!-- Advanced Filters Toggle -->
             <button type="button" id="advanced-toggle">Advanced Filters</button>
             <div id="advanced-filters">
@@ -83,7 +141,7 @@
                     </select>
                 </label>
             </div>
-            <button type="submit">Search</button>
+            <button type="button" onclick="searchVehicles()">Search</button>
         </form>
     </section>
 
@@ -108,12 +166,144 @@
         </div>
             <div class="vehicle-card"><a href="vehicle-detail.html">
                 <img src="vehicle4.jpg" alt="Vehicle 4" class="vehicle-image">
-                <p>Vehicle 4</p>
+                
 
             </a>
         </div>
         </div>
     </section>
+
+
+
+    <!-- Featured Vehicles -->
+    <section class="featured-vehicles">
+        <h2>Featured Vehicles</h2>
+        <div id="vehicle-results" class="vehicle-grid">
+            <!-- The vehicles will be displayed here dynamically -->
+        </div>
+    </section>
+
+    <script>
+        // Dummy vehicle data
+        const vehicles = [
+            { id: 1, make: 'Toyota', model: 'Corolla', year: 2022, price: '20000', mileage: '15000', location: 'New York', color: 'white', features: ['sunroof'], fuel: 'gasoline', transmission: 'automatic' },
+            { id: 2, make: 'Ford', model: 'Focus', year: 2021, price: '18000', mileage: '12000', location: 'Los Angeles', color: 'black', features: ['leather-seats'], fuel: 'diesel', transmission: 'manual' },
+            { id: 3, make: 'Tesla', model: 'Model 3', year: 2023, price: '35000', mileage: '5000', location: 'San Francisco', color: 'red', features: ['navigation'], fuel: 'electric', transmission: 'automatic' },
+            { id: 4, make: 'Honda', model: 'Civic', year: 2020, price: '22000', mileage: '10000', location: 'Miami', color: 'black', features: ['sunroof', 'navigation'], fuel: 'gasoline', transmission: 'manual' },
+        ];
+
+        // Function to filter vehicles based on form input
+        function searchVehicles() {
+            // Get search values from the form
+            const make = document.getElementById('make').value.toLowerCase();
+            const model = document.getElementById('model').value.toLowerCase();
+            const year = document.getElementById('year').value;
+            const price = document.getElementById('price-range').value;
+            const mileage = document.getElementById('mileage').value;
+            const location = document.getElementById('location').value.toLowerCase();
+            const color = document.getElementById('color').value.toLowerCase();
+            const features = document.getElementById('features').value.toLowerCase();
+            const fuel = document.getElementById('fuel-type').value.toLowerCase();
+            const transmission = document.getElementById('transmission').value.toLowerCase();
+
+            // Filter vehicles based on the form inputs
+            const filteredVehicles = vehicles.filter(vehicle => {
+                return (
+                    (make === '' || vehicle.make.toLowerCase().includes(make)) &&
+                    (model === '' || vehicle.model.toLowerCase().includes(model)) &&
+                    (year === '' || vehicle.year == year) &&
+                    (price === '' || vehicle.price <= price) &&
+                    (mileage === '' || vehicle.mileage <= mileage) &&
+                    (location === '' || vehicle.location.toLowerCase().includes(location)) &&
+                    (color === '' || vehicle.color.toLowerCase().includes(color)) &&
+                    (features === '' || vehicle.features.some(f => f.toLowerCase().includes(features))) &&
+                    (fuel === '' || vehicle.fuel.toLowerCase().includes(fuel)) &&
+                    (transmission === '' || vehicle.transmission.toLowerCase().includes(transmission))
+                );
+            });
+
+            // Show the filtered vehicles
+            displayVehicles(filteredVehicles);
+        }
+
+        // Function to display the vehicles
+        function displayVehicles(vehicles) {
+            const resultsContainer = document.getElementById('vehicle-results');
+            resultsContainer.innerHTML = ''; // Clear any previous results
+
+            if (vehicles.length === 0) {
+                resultsContainer.innerHTML = '<p>No vehicles found.</p>';
+                return;
+            }
+
+            vehicles.forEach(vehicle => {
+                const vehicleCard = document.createElement('div');
+                vehicleCard.classList.add('vehicle-card');
+                vehicleCard.innerHTML = `
+                    <a href="vehicle-detail.html">
+                        <img src="vehicle${vehicle.id}.jpg" alt="Vehicle ${vehicle.id}" class="vehicle-image">
+                        <p>${vehicle.make} ${vehicle.model} (${vehicle.year})</p>
+                        <p>Price: $${vehicle.price}</p>
+                        <p>Mileage: ${vehicle.mileage} miles</p>
+                    </a>
+                `;
+                resultsContainer.appendChild(vehicleCard);
+            });
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <script src="script.js"></script>
 </body>

@@ -7,8 +7,16 @@
 }
 
 body {
-    background-color: #f0f0f0;
-    color: #333;
+    
+    background-image: url('images/background.jpg');
+    background-size: cover;                 /* Ensures the image covers the entire page */
+        background-position: center center;     /* Centers the image */
+        background-attachment: fixed;           /* Makes the background image stay fixed while scrolling */
+        background-repeat: no-repeat;           /* Prevents the image from repeating */
+        margin: 0;                              /* Removes default margin */
+        font-family: Arial, sans-serif;          /* Optional: Customize your font */
+    
+    
 }
 
 
