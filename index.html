@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Dealership</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Section -->
+    <header>
+        <nav class="navbar">
+            <h1>Car Dealership</h1>
+            <ul>
+                <li><a href="#new-cars">New Cars</a></li>
+                <li><a href="#used-cars">Used Cars</a></li>
+                <li><a href="#electric-hybrid">Electric & Hybrid Cars</a></li>
+                <li><a href="#financing">Financing</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Enhanced Search Bar with Filters -->
+    <section class="search-bar">
+        <h2>Find Your Car</h2>
+        <form id="search-form">
+            <input type="text" placeholder="Make" id="make" required>
+            <input type="text" placeholder="Model" id="model" required>
+            <input type="text" placeholder="Year" id="year" required>
+            <input type="text" placeholder="Price Range" id="price-range" required>
+            <input type="text" placeholder="Mileage" id="mileage" required>
+            <input type="text" placeholder="Location" id="location" required>
+            
+            <!-- Advanced Filters Toggle -->
+            <button type="button" id="advanced-toggle">Advanced Filters</button>
+            <div id="advanced-filters">
+                <label>
+                    Color:
+                    <select id="color">
+                        <option value="">Any</option>
+                        <option value="black">Black</option>
+                        <option value="white">White</option>
+                        <option value="red">Red</option>
+                        <!-- Add more colors as needed -->
+                    </select>
+                </label>
+                <label>
+                    Features:
+                    <select id="features">
+                        <option value="">Any</option>
+                        <option value="sunroof">Sunroof</option>
+                        <option value="leather-seats">Leather Seats</option>
+                        <option value="navigation">Navigation</option>
+                        <!-- Add more features as needed -->
+                    </select>
+                </label>
+                <label>
+                    Fuel Type:
+                    <select id="fuel-type">
+                        <option value="">Any</option>
+                        <option value="gasoline">Gasoline</option>
+                        <option value="diesel">Diesel</option>
+                        <option value="electric">Electric</option>
+                        <!-- Add more fuel types as needed -->
+                    </select>
+                </label>
+                <label>
+                    Transmission:
+                    <select id="transmission">
+                        <option value="">Any</option>
+                        <option value="automatic">Automatic</option>
+                        <option value="manual">Manual</option>
+                    </select>
+                </label>
+            </div>
+            <button type="submit">Search</button>
+        </form>
+    </section>
+
+    <!-- Featured Vehicles -->
+    <section class="featured-vehicles">
+        <h2>Featured Vehicles</h2>
+        <div class="vehicle-grid">
+            <div class="vehicle-card"><a href="vehicle-detail.html">Vehicle 1</a></div>
+            <div class="vehicle-card"><a href="vehicle-detail.html">Vehicle 2</a></div>
+            <div class="vehicle-card"><a href="vehicle-detail.html">Vehicle 3</a></div>
+            <div class="vehicle-card"><a href="vehicle-detail.html">Vehicle 4</a></div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
