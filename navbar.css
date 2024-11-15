@@ -1,0 +1,56 @@
+/* Basic style for the navigation bar */
+.navbar {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Vertically center the items */
+    justify-content: space-between; /* Space out the logo, title, and navigation */
+    padding: 20px; /* Add padding for spacing */
+    background-color: #f8f9fa; /* Light gray background color */
+    border: 0.5px solid #333; /* Add a border with a color of your choice */
+    border-radius: 5px; /* Optional: Add rounded corners */
+
+}
+
+/* Style for the logo */
+
+.logo {
+    height: 50px; /* Set a fixed height for the logo */
+    margin-right: 20px; /* Space between the logo and the title */
+    cursor: pointer;
+}
+
+/* Optional: Style for the title */
+.navbar-title {
+    flex-grow: 1; /* Allow the title to take the remaining space */
+    text-align: center; /* Center the title */
+}
+
+.navbar ul li a:hover{
+    color: red;
+}
+
+/* Style for the navigation links */
+.nav-links {
+    list-style: none; /* Remove the default list styling */
+    display: flex; /* Align the list items in a row */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+}
+
+.nav-links li {
+    margin-left: 20px; /* Add space between the list items */
+}
+
+/* Style for the links */
+.nav-links a {
+    text-decoration: none; /* Remove the underline from links */
+    color: #333; /* Set link color */
+    font-size: 18px; /* Font size for the links */
+    display: flex; /* Make the link a flex container */
+    align-items: center; /* Vertically align the icon and text */
+}
+
+/* Style for the icons inside the links */
+.nav-links i {
+    margin-right: 8px; /* Space between the icon and text */
+    font-size: 20px; /* Adjust icon size */
+}

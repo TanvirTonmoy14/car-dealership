@@ -6,97 +6,72 @@
     font-family: Arial, sans-serif;
 }
 
-body {
+
     
-    background-image: url('images/background.jpg');
-    background-size: cover;                 /* Ensures the image covers the entire page */
+    body {
+        background-image: url('images/background1.jpg');
+        background-size: cover;                 /* Ensures the image covers the entire page */
         background-position: center center;     /* Centers the image */
         background-attachment: fixed;           /* Makes the background image stay fixed while scrolling */
         background-repeat: no-repeat;           /* Prevents the image from repeating */
         margin: 0;                              /* Removes default margin */
         font-family: Arial, sans-serif;          /* Optional: Customize your font */
-    
-    
-}
-
-
-
-/* Basic style for the navigation bar */
-.navbar {
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Vertically center the items */
-    justify-content: space-between; /* Space out the logo, title, and navigation */
-    padding: 20px; /* Add padding for spacing */
-}
-
-/* Style for the logo */
-.logo {
-    height: 50px; /* Set a fixed height for the logo */
-    margin-right: 20px; /* Space between the logo and the title */
-}
-
-/* Optional: Style for the title */
-.navbar-title {
-    flex-grow: 1; /* Allow the title to take the remaining space */
-    text-align: center; /* Center the title */
-}
-
-/* Style for the navigation links */
-.nav-links {
-    list-style: none; /* Remove the default list styling */
-    display: flex; /* Align the list items in a row */
-    margin: 0; /* Remove margin */
-    padding: 0; /* Remove padding */
-}
-
-.nav-links li {
-    margin-left: 20px; /* Add space between the list items */
-}
-
-/* Style for the links */
-.nav-links a {
-    text-decoration: none; /* Remove the underline from links */
-    color: #333; /* Set link color */
-    font-size: 18px; /* Font size for the links */
-    display: flex; /* Make the link a flex container */
-    align-items: center; /* Vertically align the icon and text */
-}
-
-/* Style for the icons inside the links */
-.nav-links i {
-    margin-right: 8px; /* Space between the icon and text */
-    font-size: 20px; /* Adjust icon size */
-}
+    }
 
 
 
 
 
-.search-bar {
+
+/* .search-bar {
     padding: 20px;
     text-align: center;
     background-color: #e0e0e0;
+
+} */
+
+.search-bar {
+    padding: 20px;
+    text-align: left;
+    background-color: transparent; /* Semi-transparent background */
 }
+
+
 
 .search-bar h2 {
     margin-bottom: 15px;
+    color: white; /* Change text color to white for better visibility */
+
 }
 
 .search-bar form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
 }
 
+.search-bar label {
+    color: #007BFF; /* Change label color to blue */
+    font-weight: bold; /* Optional: Make the label text bold */
+}
+
+
+
+
+
+
 .search-bar input, .search-bar select {
-    padding: 10px;
-    width: 200px;
+    /* padding: 10px;
+    width: 200px; */
+
+    background-color: rgba(250, 241, 241, 0.973); /* Semi-transparent background for input fields */
+    border: 1px solid white; /* White border for better visibility */
 }
 
 .search-bar button {
     padding: 10px 20px;
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for button */
     color: white;
     border: none;
     cursor: pointer;

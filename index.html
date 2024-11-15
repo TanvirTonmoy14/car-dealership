@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Dealership</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
 
      <!-- Load Font Awesome for icons -->
      <script src="https://kit.fontawesome.com/c8fa56d403.js" crossorigin="anonymous"></script>
@@ -15,13 +16,13 @@
     <header>
         <nav class="navbar">
 
-            <img src="logo.png" alt="Car Dealership Logo" class="logo">
+            <a href="index.html"><img src="logo.png" alt="Car Dealership Logo" class="logo"></a>
 
             <h1>Car Dealership</h1>
 
             <ul class="nav-links">
-                <li><a href="#new-cars"><i class="fa fa-car"></i> New Cars</a></li>
-                <li><a href="#used-cars"><i class="fa fa-car-side"></i> Used Cars</a></li>
+                <li><a href="newcar.html"><i class="fa fa-car"></i> New Cars</a></li>
+                <li><a href="usedcar.html"><i class="fa fa-car-side"></i> Used Cars</a></li>
                 <li><a href="#electric-hybrid"><i class="fa fa-bolt"></i> Electric & Hybrid Cars</a></li>
                 <li><a href="#financing"><i class="fa fa-dollar-sign"></i> Financing</a></li>
                 <li><a href="#financing2"><i class="fa-solid fa-magnifying-glass"></i> Financing2</a></li>
@@ -30,10 +31,55 @@
     </header>
 
 
+    <!-- New Cars Section -->
+    <section id="new-cars" class="car-section" style="display: none;">
+        <h2>New Cars</h2>
+        <p>Explore our selection of the latest models available.</p>
+        <!-- Add images for new cars -->
+        <img src="new-car1.jpg" alt="New Car Model 1" class="car-image">
+        <img src="new-car2.jpg" alt="New Car Model 2" class="car-image">
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
      <!-- Enhanced Search Bar with Filters -->
      <section class="search-bar">
         <h2>Find Your Car</h2>
         <form id="search-form">
+
+
+ <!-- Year Filter -->
+ <label for="ID">id</label>
+ <select id="id">
+     <option value="">Any</option>
+     <option value="1">1</option>
+     <option value="2">2</option>
+     <option value="3">3</option>
+     <option value="4">4</option>
+     <!-- Add more years as needed -->
+ </select>
+
+
+
+
             <!-- Make Filter -->
             <label for="make">Make</label>
             <select id="make">
@@ -183,6 +229,19 @@
         </div>
     </section>
 
+
+    <section id="vehicle-detail-section" class="vehicle-details" style="display: none;">
+        <h2 id="vehicle-title"></h2>
+        <img id="vehicle-image" src="" alt="Main Image" class="main-image">
+        <p id="vehicle-price"></p>
+        <p id="vehicle-mileage"></p>
+        <p id="vehicle-engine"></p>
+        <p id="vehicle-transmission"></p>
+        <p id="vehicle-location"></p>
+        <button onclick="closeVehicleDetail()">Back to Search</button>
+    </section>
+    
+
     <script>
         // Dummy vehicle data
         const vehicles = [
@@ -195,6 +254,7 @@
         // Function to filter vehicles based on form input
         function searchVehicles() {
             // Get search values from the form
+           
             const make = document.getElementById('make').value.toLowerCase();
             const model = document.getElementById('model').value.toLowerCase();
             const year = document.getElementById('year').value;
@@ -209,6 +269,7 @@
             // Filter vehicles based on the form inputs
             const filteredVehicles = vehicles.filter(vehicle => {
                 return (
+                   
                     (make === '' || vehicle.make.toLowerCase().includes(make)) &&
                     (model === '' || vehicle.model.toLowerCase().includes(model)) &&
                     (year === '' || vehicle.year == year) &&
@@ -250,45 +311,82 @@
                 resultsContainer.appendChild(vehicleCard);
             });
         }
+
+  // Function to show vehicle details
+  function showVehicleDetail(vehicleId) {
+            const vehicle = vehicles.find(v => v.id === vehicleId);
+            if (vehicle) {
+                document.getElementById('vehicle-title').textContent = `${vehicle.make} ${vehicle.model} (${vehicle.year})`;
+                document.getElementById('vehicle-image').src = vehicle.image;
+                document.getElementById('vehicle-price').textContent = `Price: $${vehicle.price}`;
+                document.getElementById('vehicle-mileage').textContent = `Mileage: ${vehicle.mileage} miles`;
+                document.getElementById('vehicle-engine').textContent = `Engine: ${vehicle.engine}`;
+                document.getElementById('vehicle-transmission').textContent = `Transmission: ${vehicle.transmission}`;
+                document.getElementById('vehicle-fuel-type').textContent = `Fuel Type: ${vehicle.fuel}`;
+
+                document.getElementById('vehicle-results').style.display = 'none';
+                document.getElementById('vehicle-detail-section').style.display = 'block';
+            }
+        }
+
+        // Function to close vehicle details and return to search
+        function closeVehicleDetail() {
+            document.getElementById('vehicle-detail-section').style.display = 'none';
+            document.getElementById('vehicle-results').style.display = 'grid';
+        }
+
+
+
+
+
+
+        
+        // Function to show specific sections based on the ID
+        function showSection(sectionId) {
+            // Hide all car sections first
+            const sections = document.querySelectorAll('.car-section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show the selected section
+            const sectionToShow = document.getElementById(sectionId);
+            if (sectionToShow) {
+                sectionToShow.style.display = 'block';
+            }
+        }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
